@@ -71,7 +71,8 @@ from returns.result import Failure, Result, Success
 
 
 def get_person_name(person_id):
-    result: Result = Person.objects.get_result(id=person_id)
+    # Type is `Result[Person, Exception]`:
+    result = Person.objects.get_result(id=person_id)
 
     match result:
         case Success(person):
